@@ -40,11 +40,14 @@ function game() {
     } else {
         if (x_win > x_lose) {
             document.querySelector('.fiveRounds').innerHTML = "You are winner! Congratulations!";
+            return "You are winner! Congratulations!";
         }
         else if (x_win == x_lose){
-            document.querySelector('.fiveRounds').innerHTML = "Opps! Almost";
+            document.querySelector('.fiveRounds').innerHTML = "Opps! Almost.";
+            return "Opps! Almost";
         } else {
-            document.querySelector('.fiveRounds').innerHTML = "U suck lol";
+            document.querySelector('.fiveRounds').innerHTML = "U suck lol.";
+            return "U suck lol";
         }
 
     }
@@ -69,8 +72,9 @@ btns.forEach(btn => btn.addEventListener('click', function(e) {
     document.querySelector('.showRound').innerHTML = `Round ${n}`;
 
     if (n == 5) {
+        let x = game();
         game();
-        let q = confirm("Try again?");
+        let q = confirm(`${x} Try again?`);
         if (q) {
             location.reload();
         }
